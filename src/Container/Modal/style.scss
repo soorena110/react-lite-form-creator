@@ -4,8 +4,9 @@
   background: rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 0;
+  left: 0;
+  display: inline-block;
   z-index: 9999;
-
 
   .modal-content {
     position: absolute;
@@ -36,6 +37,7 @@
       -ms-transition: background-color linear .2s;
       -o-transition: background-color linear .2s;
       transition: background-color linear .2s;
+      padding: 5px;
 
       &:hover {
         background-color: rgba(255, 255, 255, .7);
@@ -48,3 +50,7 @@
   width: 90% !important;
 }
 
+.modal-footer {
+  padding: 16px;
+  text-align: center;
+}
