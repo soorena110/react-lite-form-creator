@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {render} from "react-dom";
-import {Decimal, DropDown, Input, Integer, Menu, MenuItemProps} from '..'
+import {Decimal, DropDown, Input, Integer, Menu, MenuItemProps, Modal} from '..'
 import './style.css';
+import Button from "../Form/BoxButton";
 
 declare const module: any;
 
@@ -28,6 +29,17 @@ function MainApplication() {
                           onChange={e => console.log(e)}
                           addNewItemProps={{placeHolder: 'hello :)))', onSubmit: (e) => console.log(e)}}/>
                 <Menu name="boxMenu" label="منو" items={items} searchable value={5} onChange={e => console.log(e)}/>
+            <Modal trigger={<Button className="buy" isWide>button</Button>}>
+                <Modal.Header>
+                    هدر مودال
+                </Modal.Header>
+                <Modal.Body>
+                    بادی
+                </Modal.Body>
+                <Modal.Footer>
+                    فوتر مودال
+                </Modal.Footer>
+            </Modal>
             </span>
     </div>
 }

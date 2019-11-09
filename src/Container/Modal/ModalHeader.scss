@@ -1,0 +1,35 @@
+.modal-header {
+  font-weight: bold;
+  direction: rtl;
+  font-size: 14px;
+  padding: 32px;
+  line-height: normal;
+
+  &.modal-header-balloon {
+
+    > .modal-header-icon {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  > .modal-header-icon {
+    margin-left: 16px;
+  }
+}
+
+.modal-header-triangle {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  content: '';
+  -webkit-transform: translateY(-50%) rotate(45deg);
+  -moz-transform: translateY(-50%) rotate(45deg);
+  -ms-transform: translateY(-50%) rotate(45deg);
+  -o-transform: translateY(-50%) rotate(45deg);
+  transform: translateY(-50%) rotate(45deg);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

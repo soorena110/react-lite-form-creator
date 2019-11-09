@@ -1,6 +1,6 @@
 {
   "name": "react-lite-form-creator",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A simple and light library to create forms.",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -9,7 +9,7 @@
     "start": "webpack-dev-server -d --env.dev",
     "build": "npm run clean & webpack -p --env.prod",
     "postbuild": "tsc --emitDeclarationOnly --declaration",
-    "deploy": "npm run build & npm run build:dev & npm run postbuild & npm publish --access=public"
+    "deploy": "npm run build & npm run postbuild & npm publish --access=private"
   },
   "repository": {
     "type": "git",
@@ -46,6 +46,7 @@
     "style-loader": "^0.23.1",
     "typescript": "^3.7.2",
     "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"

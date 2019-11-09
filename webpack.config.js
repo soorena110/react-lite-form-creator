@@ -27,6 +27,11 @@ module.exports = (env) => {
                     loader: 'react-svg-loader',
                     exclude: /node_modules/,
                 },
+                {
+                    test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
+                    loader: 'url-loader',
+                    exclude: /node_modules/
+                },
             ]
         },
         resolve: {
