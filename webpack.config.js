@@ -15,14 +15,6 @@ module.exports = (env) => {
                     exclude: /node_modules/
                 },
                 {
-                    test: /\.tsx?$/,
-                    use: [{
-                        loader: 'awesome-typescript-loader',
-                        options: {silent: true}
-                    }],
-                    exclude: /node_modules/
-                },
-                {
                     test: /\.(svg)(\?v=\d+\.\d+\.\d+)?$/,
                     loader: 'react-svg-loader',
                     exclude: /node_modules/,
@@ -30,6 +22,14 @@ module.exports = (env) => {
                 {
                     test: /\.(jpe?g|png|gif)(\?[a-z0-9=.]+)?$/,
                     loader: 'url-loader',
+                    exclude: /node_modules/
+                },
+                {
+                    test: /\.tsx?$/,
+                    use: [{
+                        loader: 'awesome-typescript-loader',
+                        options: {silent: true}
+                    }],
                     exclude: /node_modules/
                 },
             ]
@@ -56,7 +56,7 @@ module.exports = (env) => {
             moduleTrace: true,
             errorDetails: true
         },
-        plugins: [env.dev ? new Webpack.HotModuleReplacementPlugin() : new UglifyJsPlugin()]
+        plugins: env.dev ? [new Webpack.HotModuleReplacementPlugin()] : undefined
     };
 
 };

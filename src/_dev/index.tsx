@@ -4,7 +4,6 @@ import {Decimal, DropDown, Input, Integer, Menu, MenuItemProps, Modal} from '..'
 import './style.css';
 import Button from "../Form/BoxButton";
 
-declare const module: any;
 
 function MainApplication() {
     const items: MenuItemProps[] = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((i, ix) => ({
@@ -49,4 +48,6 @@ render(
     document.getElementById("root")
 );
 
-module.hot.accept();
+declare const module: any;
+if (module && module.hot)
+    module.hot.accept('./index.ts');

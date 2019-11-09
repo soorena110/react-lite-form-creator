@@ -10,3 +10,4 @@ export {default as SearchInput, BoxSearchInputProps as SearchInputProps} from '.
 export {default as Time, BoxTimeInputProps as TimeInputProps} from './BoxTime';
 export {default as Menu, BoxMenuItemProps as MenuItemProps, BoxMenuAddNewItemProps, BoxMenuProps} from './BoxMenu';
 export {default as FormBuilder} from './BoxForm';
+export {default as Button} from './BoxButton';
