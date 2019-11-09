@@ -1,0 +1,101 @@
+@import "layout";
+
+//#region color definition
+
+$warning: #f7b500;
+$error: #fa485e;
+$success: #19bf62;
+
+$increase: #19bf62;
+$decrease: #fa485e;
+//#endregion
+
+//#region border
+
+.border-success {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $success;
+  color: $success;
+}
+
+.border-warning {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $warning;
+  color: $warning;
+}
+
+.border-error {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $error;
+  color: $error;
+}
+
+.border-increase {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $increase;
+  color: $increase;
+}
+
+.border-decrease {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $decrease;
+  color: $decrease;
+}
+
+//#endregion
+//#region background
+
+.success {
+  background: $success;
+  color: $clean;
+}
+
+.warning {
+  background: $warning;
+  color: $clean;
+}
+
+.error {
+  background: $error;
+  color: $clean;
+}
+
+.increase {
+  background: $increase;
+  color: $clean;
+}
+
+.decrease {
+  background: $decrease;
+  color: $clean;
+}
+
+//#endregion
+//#region text
+
+.text-success {
+  color: $success;
+}
+
+.text-warning {
+  color: $warning;
+}
+
+.text-error {
+  color: $error;
+}
+
+.text-increase {
+  color: $increase;
+}
+
+.text-decrease {
+  color: $decrease;
+}
+
+//#endregion

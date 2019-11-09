@@ -1,0 +1,15 @@
+.box-input-date-picker {
+    height: 0;
+    position: relative;
+    bottom: 100%;
+    z-index: 9999;
+}
+
+.box-input-date-picker-inside {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: white;
+    border: solid 1px lightgrey;
+}
+

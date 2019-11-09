@@ -1,0 +1,146 @@
+//#region color definition
+
+$gray-1: #f9f9fc;
+$gray-2: #e4e7eb;
+$gray-3: #b4b1c2;
+$gray-4: #75788d;
+$gray-5: #5c5b6f;
+
+$clean: #fff;
+$defaultColor: $gray-5;
+$primary: #2B76A4;
+
+
+//#endregion
+
+//#region border
+
+.border-gray {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $gray-3;
+}
+
+.border-gray-deep {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $gray-4;
+}
+
+.border-gray-deeper {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $gray-5;
+}
+
+.border-gray-light {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $gray-2;
+}
+
+.border-gray-lighter {
+  border-color: $gray-1;
+}
+
+.border-clean {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $clean;
+}
+
+.border-default-color {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $defaultColor;
+}
+
+.border-primary {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $primary;
+}
+
+//#endregion
+//#region background
+
+
+.gray {
+  background: $gray-3;
+}
+
+.gray-deep {
+  background: $gray-4;
+}
+
+.gray-deeper {
+  background: $gray-5;
+}
+
+.gray-light {
+  background: $gray-2;
+}
+
+.gray-lighter {
+  background: $gray-1;
+}
+
+.clean {
+  background: $clean;
+}
+
+.default-color {
+  background: $defaultColor;
+}
+
+.primary {
+  background: $primary;
+}
+
+
+//#endregion
+//#region text
+
+.text-gray {
+  color: $gray-3;
+}
+
+.text-gray-deep {
+  color: $gray-4;
+}
+
+.text-gray-deeper {
+  color: $gray-5;
+}
+
+.text-gray-light {
+  color: $gray-2;
+}
+
+.text-gray-lighter {
+  color: $gray-1;
+}
+
+.text-clean {
+  color: $clean;
+}
+
+.text-default-color {
+  color: $defaultColor;
+}
+
+.text-primary {
+  color: $primary;
+}
+
+//#endregion
+
+.disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+body {
+  background: $clean;
+  color: $defaultColor;
+}

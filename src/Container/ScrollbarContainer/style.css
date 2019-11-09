@@ -1,0 +1,61 @@
+.scrollbar-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden !important;
+    position: relative;
+    direction: rtl;
+}
+
+.scrollbar-container-content {
+    height: 100%;
+    width: calc(100% + 20px);
+    padding-right: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    direction: initial;
+}
+
+.scrollbar-container-vertical-scroll {
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    border-radius: 3px;
+    top: 0;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    left: 2px;
+    z-index: 999;
+}
+
+
+.scrollbar-container-vertical-scroll-bar {
+    -webkit-transition: background-color ease-in-out .7s;
+    -moz-transition: background-color ease-in-out .7s;
+    -ms-transition: background-color ease-in-out .7s;
+    -o-transition: background-color ease-in-out .7s;
+    transition: background-color ease-in-out .7s;
+    position: absolute;
+    border-radius: 3px;
+    width: 100% !important;
+}
+
+.scrollbar-container-clicked > .scrollbar-container-vertical-scroll > .scrollbar-container-vertical-scroll-bar {
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.scrollbar-container-mouse-move > .scrollbar-container-vertical-scroll > .scrollbar-container-vertical-scroll-bar {
+    width: 100% !important;
+    background-color: rgba(0, 0, 0, .2);
+    -webkit-transition: background-color ease-in-out .2s;
+    -moz-transition: background-color ease-in-out .2s;
+    -ms-transition: background-color ease-in-out .2s;
+    -o-transition: background-color ease-in-out .2s;
+    transition: background-color ease-in-out .2s;
+}
+
+:not(.menu)::-webkit-scrollbar {
+    width: auto !important;
+}

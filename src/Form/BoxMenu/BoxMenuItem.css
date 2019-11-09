@@ -1,0 +1,8 @@
+
+.box-menu-item, .box-menu-group {
+    padding-right: 24px;
+    padding-left: 5px;
+    direction: rtl;
+    cursor: pointer;
+    width: 100%;
+}

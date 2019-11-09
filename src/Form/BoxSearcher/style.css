@@ -1,0 +1,9 @@
+.box-input-search input{
+    cursor: text !important;
+}
+
+.box-input-search-icon{
+    position: relative;
+    bottom: 1px;
+    right: 2px;
+}

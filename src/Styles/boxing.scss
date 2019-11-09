@@ -1,0 +1,57 @@
+//#region color definition
+
+$borderRadius: 4px;
+
+//#endregion
+
+//#region border
+
+.border-radius {
+  border-radius: $borderRadius;
+}
+
+.border-2x {
+  border-width: 2px !important;
+}
+
+//#endregion
+
+//margin and padding
+$baseMargin: 8px;
+$basePadding: 8px;
+$max: 4;
+$min: 1;
+
+@for $i from $min through $max {
+  .m-#{$i} {
+    margin: $baseMargin * $i;
+  }
+  .ml-#{$i} {
+    margin-left: $baseMargin * $i;
+  }
+  .mr-#{$i} {
+    margin-right: $baseMargin * $i;
+  }
+  .mt-#{$i} {
+    margin-top: $baseMargin * $i;
+  }
+  .mt-#{$i} {
+    margin-bottom: $baseMargin * $i;
+  }
+
+  .p-#{$i} {
+    padding: $basePadding * $i;
+  }
+  .pl-#{$i} {
+    padding-left: $basePadding * $i;
+  }
+  .pr-#{$i} {
+    padding-right: $basePadding * $i;
+  }
+  .pt-#{$i} {
+    padding-top: $basePadding * $i;
+  }
+  .pt-#{$i} {
+    padding-bottom: $basePadding * $i;
+  }
+}

@@ -1,0 +1,23 @@
+.box-check {
+    cursor: pointer;
+}
+
+.box-input-check {
+    direction: ltr;
+    width: 50px;
+    padding: 3px;
+    margin: auto auto auto 5px;
+    border-radius: 40px;
+    transition: padding .2s ease-in-out;
+}
+
+.box-input-check-box {
+    display: inline-block;
+    height: 17px;
+    width: 17px;
+    border-radius: 40px;
+}
+
+.box-input-check.selected {
+    padding-right: 40px;
+}

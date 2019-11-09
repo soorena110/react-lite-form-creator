@@ -1,0 +1,38 @@
+
+.box-menu-add-form {
+    direction: rtl;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    overflow: hidden;
+}
+
+.box-menu-add-form-input {
+    background-color: transparent !important;
+    border: transparent !important;
+    direction: rtl;
+    text-align: right;
+    height: 100%;
+    display: block;
+    padding: 5px;
+    flex: 1;
+}
+
+.box-menu-add-form-button {
+    background-color: transparent !important;
+    padding: 5px;
+    transition: width linear 1s;
+    height: 100%;
+    flex: .1;
+    border: none;
+    cursor: pointer;
+}
+
+.box-menu-add-form-button-visible {
+    opacity: 1;
+}
+
+.box-menu-add-form-button-hidden {
+    width: 0;
+    opacity: 0;
+}

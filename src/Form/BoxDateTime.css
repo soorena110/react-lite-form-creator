@@ -1,0 +1,11 @@
+.box-input-date-time-date {
+    display: inline-block;
+    width: 60%;
+    min-width: initial;
+}
+
+.box-input-date-time-time {
+    display: inline-block;
+    width: 40%;
+    min-width: initial;
+}
