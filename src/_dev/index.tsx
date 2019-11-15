@@ -1,11 +1,16 @@
 import * as React from 'react';
+import {useState} from 'react';
 import {render} from "react-dom";
 import {Decimal, DropDown, Input, Integer, Menu, MenuItemProps, Modal} from '..'
 import './style.css';
 import Button from "../Form/BoxButton";
+import BoxDateTime from "../Form/BoxDateTime";
 
 
 function MainApplication() {
+    const [dateTime, setDateTime] = useState();
+    console.warn(dateTime);
+
     const items: MenuItemProps[] = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((i, ix) => ({
         title: 'سلام خوبی ؟ ' + i,
         content: <span>سلام <b>بچه های عزیز</b> شماره {ix}</span>,
@@ -28,6 +33,8 @@ function MainApplication() {
                           onChange={e => console.log(e)}
                           addNewItemProps={{placeHolder: 'hello :)))', onSubmit: (e) => console.log(e)}}/>
                 <Menu name="boxMenu" label="منو" items={items} searchable value={5} onChange={e => console.log(e)}/>
+                <BoxDateTime name="datetime" label="درصد" value={dateTime} onChange={e => setDateTime(e.newValue)}
+                             hasError/>
             <Modal trigger={<Button className="buy" isWide>button</Button>}>
                 <Modal.Header>
                     هدر مودال
@@ -50,4 +57,4 @@ render(
 
 declare const module: any;
 if (module && module.hot)
-    module.hot.accept('./index.ts');
+    module.hot.accept('./index.tsx');

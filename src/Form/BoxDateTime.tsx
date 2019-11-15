@@ -16,31 +16,14 @@ export interface BoxDateTimeProps {
     style?: React.CSSProperties;
 }
 
-interface State {
-    dateValue?: string;
-    timeValue?: string;
-}
 
-export default class BoxDateTime extends React.Component<BoxDateTimeProps, State> {
-
-    constructor(props: BoxDateTimeProps) {
-        super(props);
-
-        let timeValue = undefined;
-        let dateValue = undefined;
-        if (props.value)
-            [dateValue, timeValue] = props.value.split('T');
-
-        this.state = {
-            timeValue: timeValue,
-            dateValue: dateValue
-        }
-    }
-
+export default class BoxDateTime extends React.Component<BoxDateTimeProps> {
     //#region Events
 
     _handleChangeDate(newValue: string) {
-        const dateTimeValue = `${newValue}T${this.state.timeValue}`;
+        const [, timeValue] = this.props.value ? this.props.value.split('T') : [];
+
+        const dateTimeValue = `${newValue}T${timeValue || ''}`;
         if (this.props.onChange) {
             const e = {
                 newValue: dateTimeValue
@@ -50,9 +33,9 @@ export default class BoxDateTime extends React.Component<BoxDateTimeProps, State
     }
 
     _handleChangeTime(newValue: string) {
-        this.setState({timeValue: newValue});
+        const [dateValue] = this.props.value ? this.props.value.split('T') : [];
 
-        const dateTimeValue = `${this.state.dateValue}T${newValue}`;
+        const dateTimeValue = `${dateValue || ''}T${newValue}`;
         if (this.props.onChange) {
             const e = {
                 newValue: dateTimeValue
@@ -66,9 +49,11 @@ export default class BoxDateTime extends React.Component<BoxDateTimeProps, State
     //#region Render
 
     render() {
+        const [dateValue, timeValue] = this.props.value ? this.props.value.split('T') : [];
+
         return <React.Fragment>
             <BoxDate name="date" label="تاریخ"
-                     value={this.state.dateValue}
+                     value={dateValue}
                      className={`${this.props.className} box-input-date-time-date`}
                      style={this.props.style}
                      hasError={this.props.hasError}
@@ -76,7 +61,7 @@ export default class BoxDateTime extends React.Component<BoxDateTimeProps, State
                      onChange={e => this._handleChangeDate(e.newValue)}
             />
             <BoxTime name="time" label="زمان"
-                     value={this.state.timeValue}
+                     value={timeValue}
                      className={`${this.props.className} box-input-date-time-time`}
                      style={this.props.style}
                      hasError={this.props.hasError}

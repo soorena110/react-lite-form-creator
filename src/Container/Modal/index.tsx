@@ -37,16 +37,14 @@ export default class Modal extends React.Component<Props, State> {
         this.state = {isVisible: this.props.isVisible}
     }
 
-    componentWillReceiveProps(nextProps: Props) {
-        if (nextProps.isVisible != undefined && nextProps.isVisible != this.state.isVisible)
-            this.setState({isVisible: nextProps.isVisible});
-    }
+    componentDidUpdate(prevProps: Props, prevState: State) {
+        if (this.props.isVisible != undefined && this.props.isVisible != prevState.isVisible)
+            this.setState({isVisible: this.props.isVisible});
 
-    componentDidMount() {
         this._focus();
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
         this._focus();
     }
 
@@ -75,7 +73,7 @@ export default class Modal extends React.Component<Props, State> {
         return <div style={this.props.style} className={className}>
             <div style={{position: 'relative'}}>
                 {this.props.hasCloseButton &&
-                <CloseIcon onClick={() => this.close()} className='modal-close-icon text-light'/>}
+                <CloseIcon onClick={() => this.close()} className='modal-close-icon text-gray-light'/>}
                 {this.props.children}
             </div>
         </div>

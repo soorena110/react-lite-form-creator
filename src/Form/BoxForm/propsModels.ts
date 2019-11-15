@@ -28,6 +28,8 @@ export interface BoxFormCommonPropsValidation {
     isRequired?: boolean;
     minValue?: any;
     absoluteMinValue?: any;
+    maxValue?: any;
+    absoluteMaxValue?: any;
     otherValidations?: OtherValidation[]
 }
 

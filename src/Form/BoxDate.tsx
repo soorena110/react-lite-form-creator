@@ -24,8 +24,7 @@ export default class BoxDate extends React.Component<BoxDateProps, State> {
 
         let dateValue = undefined;
         if (props.value) {
-            const dateParts = props.value.split('-').map(r => parseInt(r));
-            const jalaliDate = Persian.date.convertDateTimeToJalali(new Date(dateParts[0], dateParts[1] - 1, dateParts[2]));
+            const jalaliDate = Persian.date.convertDateTimeToJalali(props.value);
             dateValue = `${jalaliDate.year}/${jalaliDate.month}/${jalaliDate.day}`;
         }
         this.state = {
@@ -91,14 +90,15 @@ export default class BoxDate extends React.Component<BoxDateProps, State> {
 
         if (this.props.onChange) {
             const dateParts = newValue.split('/').map(v => parseInt(v));
-            const dateSplit = Persian.date.convertJalaliToGregorian({
+            const date = Persian.date.convertJalaliToGregorian({
                 year: dateParts[0],
                 month: dateParts[1],
                 day: dateParts[2]
             });
-            const outDate = dateSplit.getFullYear() +
-                '-' + dateSplit.getMonth().toString().padStart(2, '0') +
-                '-' + dateSplit.getDate().toString().padStart(2, '0');
+
+            const outDate = date.getFullYear() +
+                    '-' + date.getMonth().toString().padStart(2, '0') +
+                    '-' + date.getDate().toString().padStart(2, '0');
 
             this.props.onChange({newValue: outDate})
         }

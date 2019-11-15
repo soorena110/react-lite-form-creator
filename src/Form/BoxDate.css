@@ -2,7 +2,7 @@
     height: 0;
     position: relative;
     bottom: 100%;
-    z-index: 9999;
+    z-index: 99999999;
 }
 
 .box-input-date-picker-inside {

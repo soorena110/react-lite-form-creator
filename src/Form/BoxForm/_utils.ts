@@ -88,6 +88,11 @@ export const validateValues = (fields: BoxFormFieldProps[], values: { [fieldName
                     if (f.validation.absoluteMinValue != undefined && value <= f.validation.absoluteMinValue)
                         ret_errors[f.name] = `${label} باید بیشتر از ${f.validation.absoluteMinValue || 'صفر'} باشد.`;
 
+                    if (f.validation.maxValue != undefined && value < f.validation.maxValue)
+                        ret_errors[f.name] = `${label} باید کمتر یا مساوی ${f.validation.maxValue || 'صفر'} باشد.`;
+                    if (f.validation.absoluteMaxValue != undefined && value <= f.validation.absoluteMaxValue)
+                        ret_errors[f.name] = `${label} باید کمتر از ${f.validation.absoluteMaxValue || 'صفر'} باشد.`;
+
                     if (f.validation.otherValidations)
                         f.validation.otherValidations.forEach(v => {
                             if (v.conditionChecker(eventArgs))

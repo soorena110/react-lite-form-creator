@@ -34,7 +34,7 @@ export default class BoxForm extends React.Component<Props, State> {
         this.state = {styles: {}}
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this._callAllFieldsInits(this.props.values);
     }
 
