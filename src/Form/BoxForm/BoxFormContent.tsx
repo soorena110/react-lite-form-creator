@@ -1,5 +1,4 @@
 ﻿import * as React from 'react';
-import '../BoxDateTime.css';
 import {BoxFormEventArgs} from "./eventsModels";
 
 export interface BoxFormContentProps {

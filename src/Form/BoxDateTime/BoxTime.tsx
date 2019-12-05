@@ -1,7 +1,7 @@
 ﻿import * as React from 'react';
-import './BoxInput/style.scss';
-import {BoxInputBaseProps, KeyPressEvent} from "./BoxInput/_base";
-import BoxInput from "./BoxInput";
+import '../BoxInput/style.scss';
+import {BoxInputBaseProps, KeyPressEvent} from "../BoxInput/_base";
+import BoxInput from "../BoxInput";
 import Persian from "persian-info";
 
 export interface BoxTimeInputProps extends BoxInputBaseProps {
@@ -33,6 +33,9 @@ export default class BoxTime extends React.Component<BoxTimeInputProps> {
 
     private _handleChangeValue(newValue: string) {
         newValue = BoxTime._getRecorrectedNumberValue(newValue);
+        const prevValue = BoxTime._getRecorrectedNumberValue(this.props.value || '');
+        if (newValue == prevValue)
+            return;
 
         if (this.props.onChange) {
             const e = {
@@ -44,13 +47,12 @@ export default class BoxTime extends React.Component<BoxTimeInputProps> {
 
     private static _isClockValue(value: string) {
         return /^([01۰۱]?[0-9۰-۹]?|[2۲]?[0-3۰-۳]?):?([0-5۰-۵]?[0-9۰-۹]?)$/.test(value);
-
     }
 
     private static _getRecorrectedNumberValue(newValue: string) {
         newValue = Persian.number.convertPersianNumberToEnglish(newValue);
 
-        const colonIndex = parseInt(newValue[0]) < 2 ? 2 : 1;
+        const colonIndex = parseInt(newValue[0]) < 2 ? 2 : newValue[1] && parseInt(newValue[1]) < 4 ? 2 : 1;
         if (newValue.length > colonIndex && newValue.indexOf(':') == -1) {
             newValue = newValue.substr(0, colonIndex) + ':' +
                 newValue.substr(colonIndex, newValue.length - colonIndex);
@@ -69,17 +71,22 @@ export default class BoxTime extends React.Component<BoxTimeInputProps> {
             this.props.onKeyPress(e);
     }
 
+    _getValue() {
+        const valueParts = this.props.value && this.props.value.split(':');
+        if (!valueParts || !valueParts.length)
+            return '';
+        if (valueParts.length >= 2)
+            return valueParts[0] + ":" + valueParts[1];
+        return this.props.value;
+    }
 
     //#endregion
 
     //#region Render
 
     render() {
-        const valueParts = this.props.value && this.props.value.split(':');
         const {type, ...restProps} = this.props;
-
-        const value = !valueParts || !valueParts.length ? '' :
-            (valueParts.length >= 3 ? valueParts[0] + ":" + valueParts[1] : valueParts[0]);
+        const value = this._getValue();
 
         return <BoxInput {...restProps}
                          value={value} maxLength={5}

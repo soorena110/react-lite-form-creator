@@ -5,12 +5,13 @@ import {Decimal, DropDown, Input, Integer, Menu, MenuItemProps, Modal} from '..'
 import './style.css';
 import Button from "../Form/BoxButton";
 import BoxDateTime from "../Form/BoxDateTime";
-import BoxTime from "../Form/BoxTime";
+import BoxTime from "../Form/BoxDateTime/BoxTime";
 
 
 function MainApplication() {
     const [dateTime, setDateTime] = useState();
-    console.warn(dateTime);
+    const [time, setTime] = useState();
+    console.warn('dateTime : ', dateTime, 'time : ', time);
 
     const items: MenuItemProps[] = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((i, ix) => ({
         title: 'سلام خوبی ؟ ' + i,
@@ -36,7 +37,7 @@ function MainApplication() {
                 <Menu name="boxMenu" label="منو" items={items} searchable value={5} onChange={e => console.log(e)}/>
                 <BoxDateTime name="datetime" label="درصد" value={dateTime} onChange={e => setDateTime(e.newValue)}
                              hasError/>
-                 <BoxTime name="Time" label="زمان"/>
+                 <BoxTime name="Time" label="زمان" value={time} onChange={e => setTime(e.newValue)}/>
             <Modal trigger={<Button className="buy" isWide>button</Button>}>
                 <Modal.Header>
                     هدر مودال

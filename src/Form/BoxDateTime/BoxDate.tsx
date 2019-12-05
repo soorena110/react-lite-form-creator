@@ -1,9 +1,9 @@
 ﻿import * as React from 'react';
-import BoxInput from "./BoxInput";
+import BoxInput from "../BoxInput";
 import {DatePicker} from "react-persian-simple-calendar";
 import * as ReactDOM from 'react-dom';
 import './BoxDate.css';
-import {BoxInputBaseProps} from "./BoxInput/_base";
+import {BoxInputBaseProps} from "../BoxInput/_base";
 import Persian from "persian-info";
 
 export interface BoxDateProps extends BoxInputBaseProps {

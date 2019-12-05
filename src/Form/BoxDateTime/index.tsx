@@ -1,7 +1,7 @@
 ﻿import * as React from 'react';
 import BoxDate from "./BoxDate";
 import BoxTime from "./BoxTime";
-import './BoxDateTime.css';
+import './style.css';
 
 export interface BoxDateTimeProps {
     type?: 'datetime';
