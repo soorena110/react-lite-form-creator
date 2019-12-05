@@ -14,7 +14,7 @@ export default class BoxTime extends React.Component<BoxTimeInputProps> {
 
     _handleBlur() {
         const sp = this.props.value && this.props.value.split(':');
-        const normalValue = sp && (sp[0].length == 2 ? sp[0] : '0' + sp[0]) + ':' + (sp[1].length == 2 ? sp[1] : '0' + sp[1]);
+        const normalValue = sp && (sp[0] || '').padStart(2, '0') + ':' + (sp[1] || '').padStart(2, '0') ;
         this._handleChangeValue(normalValue || '');
         if (this.props.onBlur)
             this.props.onBlur({});
