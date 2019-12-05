@@ -32,12 +32,9 @@ export default class BoxTime extends React.Component<BoxTimeInputProps> {
     }
 
     private _handleChangeValue(newValue: string) {
-        newValue = this._getRecorrectedNumberValue(newValue);
+        newValue = BoxTime._getRecorrectedNumberValue(newValue);
 
         if (this.props.onChange) {
-            const sp = newValue.split(':');
-            newValue = sp.length >= 3 ? newValue : newValue + ':00';
-
             const e = {
                 newValue: newValue
             };
@@ -50,7 +47,7 @@ export default class BoxTime extends React.Component<BoxTimeInputProps> {
 
     }
 
-    private _getRecorrectedNumberValue(newValue: string) {
+    private static _getRecorrectedNumberValue(newValue: string) {
         newValue = Persian.number.convertPersianNumberToEnglish(newValue);
 
         const colonIndex = parseInt(newValue[0]) < 2 ? 2 : 1;
@@ -58,6 +55,7 @@ export default class BoxTime extends React.Component<BoxTimeInputProps> {
             newValue = newValue.substr(0, colonIndex) + ':' +
                 newValue.substr(colonIndex, newValue.length - colonIndex);
         }
+
         return newValue;
     }
 
@@ -80,7 +78,7 @@ export default class BoxTime extends React.Component<BoxTimeInputProps> {
         const valueParts = this.props.value && this.props.value.split(':');
         const {type, ...restProps} = this.props;
 
-        const value = !valueParts || !valueParts.length ? undefined :
+        const value = !valueParts || !valueParts.length ? '' :
             (valueParts.length >= 3 ? valueParts[0] + ":" + valueParts[1] : valueParts[0]);
 
         return <BoxInput {...restProps}

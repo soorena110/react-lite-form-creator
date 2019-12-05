@@ -2,7 +2,6 @@
 
 const path = require('path');
 const Webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = (env) => {
     return {
@@ -56,7 +55,10 @@ module.exports = (env) => {
             moduleTrace: true,
             errorDetails: true
         },
-        plugins: env.dev ? [new Webpack.HotModuleReplacementPlugin()] : undefined
+        devtool: 'inline-source-map',
+        plugins: env.dev ? [
+            new Webpack.HotModuleReplacementPlugin()
+        ] : undefined
     };
 
 };

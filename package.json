@@ -1,6 +1,6 @@
 {
   "name": "react-lite-form-creator",
-  "version": "1.1.10",
+  "version": "1.1.18",
   "description": "A simple and light library to create forms.",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -33,26 +33,25 @@
   },
   "homepage": "https://github.com/soorena110/react-lite-form-creator#readme",
   "devDependencies": {
-    "@types/react": "^16.9.11",
+    "@types/react": "^16.9.15",
     "@types/react-dom": "^16.9.4",
     "awesome-typescript-loader": "^5.2.1",
     "css-loader": "^1.0.1",
     "node-sass": "^4.13.0",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-svg-loader": "^3.0.3",
     "rimraf": "^2.7.1",
     "sass-loader": "^8.0.0",
     "style-loader": "^0.23.1",
-    "typescript": "^3.7.2",
-    "uglifyjs-webpack-plugin": "^2.1.3",
-    "url-loader": "^2.2.0",
+    "typescript": "^3.7.3",
+    "url-loader": "^2.3.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
     "persian-info": "^0.8.0",
-    "react-persian-simple-calendar": "^0.5.1"
+    "react-persian-simple-calendar": "^0.5.2"
   }
 }

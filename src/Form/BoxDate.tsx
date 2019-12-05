@@ -3,7 +3,7 @@ import BoxInput from "./BoxInput";
 import {DatePicker} from "react-persian-simple-calendar";
 import * as ReactDOM from 'react-dom';
 import './BoxDate.css';
-import {BoxInputBaseProps, KeyPressEvent} from "./BoxInput/_base";
+import {BoxInputBaseProps} from "./BoxInput/_base";
 import Persian from "persian-info";
 
 export interface BoxDateProps extends BoxInputBaseProps {
@@ -12,7 +12,6 @@ export interface BoxDateProps extends BoxInputBaseProps {
 
 interface State {
     isInputFocused: boolean;
-    value?: string;
 }
 
 export default class BoxDate extends React.Component<BoxDateProps, State> {
@@ -22,14 +21,8 @@ export default class BoxDate extends React.Component<BoxDateProps, State> {
     constructor(props: BoxDateProps) {
         super(props);
 
-        let dateValue = undefined;
-        if (props.value) {
-            const jalaliDate = Persian.date.convertDateTimeToJalali(props.value);
-            dateValue = `${jalaliDate.year}/${jalaliDate.month}/${jalaliDate.day}`;
-        }
         this.state = {
             isInputFocused: false,
-            value: dateValue
         };
     }
 
@@ -43,8 +36,11 @@ export default class BoxDate extends React.Component<BoxDateProps, State> {
 
     //#region Helpers
 
-    private static _isDateValue(value: string) {
-        return /^[1۱]?[34۳۴]?[0-9۰-۹]{0,2}\/?(([1۱][0-2۰-۲])|([0۰]?[1-9۱-۹]))?\/?(([3۳][0-1۰-۱])|([1-2۱-۲][0-9۰-۹])|([0۰]?[1-9۱-۹]))?$/.test(value);
+    private _getJalaliValue() {
+        if (!this.props.value)
+            return '';
+        const jalaliDate = Persian.date.convertDateTimeToJalali(this.props.value);
+        return `${jalaliDate.year}/${jalaliDate.month}/${jalaliDate.day}`;
     }
 
     //#endregion
@@ -85,9 +81,6 @@ export default class BoxDate extends React.Component<BoxDateProps, State> {
     private _handleChange(newValue: string) {
         newValue = Persian.number.convertPersianNumberToEnglish(newValue);
 
-        this.setState({value: newValue});
-
-
         if (this.props.onChange) {
             const dateParts = newValue.split('/').map(v => parseInt(v));
             const date = Persian.date.convertJalaliToGregorian({
@@ -97,21 +90,11 @@ export default class BoxDate extends React.Component<BoxDateProps, State> {
             });
 
             const outDate = date.getFullYear() +
-                    '-' + date.getMonth().toString().padStart(2, '0') +
-                    '-' + date.getDate().toString().padStart(2, '0');
+                '-' + date.getMonth().toString().padStart(2, '0') +
+                '-' + date.getDate().toString().padStart(2, '0');
 
             this.props.onChange({newValue: outDate})
         }
-    }
-
-    private _handleKeyPress(e: KeyPressEvent) {
-        if (!BoxDate._isDateValue(e.newValue)) {
-            e.preventDefault();
-            return;
-        }
-
-        if (this.props.onKeyPress)
-            this.props.onKeyPress(e);
     }
 
     //#endregion
@@ -119,13 +102,14 @@ export default class BoxDate extends React.Component<BoxDateProps, State> {
     //#region Render
 
     private _renderDatePicker() {
+
         return <div ref={ref => this._picker = ref} className="box-input-date-picker"
                     style={{
                         display: this.state.isInputFocused ? undefined : 'none',
                         position: 'absolute'
                     }}>
             <div className="box-input-date-picker-inside">
-                <DatePicker selectedDay={this.state.value}
+                <DatePicker selectedDay={this._getJalaliValue()}
                             onDaySelected={e => {
                                 this._handleChange(e.selectedDay);
                             }}
@@ -138,10 +122,10 @@ export default class BoxDate extends React.Component<BoxDateProps, State> {
     render() {
         const {type, ...rest} = this.props;
         return <BoxInput {...rest}
-                         value={this.state.value}
-                         onChange={e => this._handleChange(e.newValue)}
+                         value={this._getJalaliValue()}
+                         onChange={undefined}
                          onBlur={() => this._handleBlur()}
-                         onKeyPress={e => this._handleKeyPress(e)}
+                         onKeyPress={undefined}
                          onFocus={() => this._handleFocus()}
                          htmlInputStyle={Object.assign({
                              textAlign: 'left',

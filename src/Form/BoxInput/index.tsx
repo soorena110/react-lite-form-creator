@@ -80,7 +80,7 @@ export default class BoxInput extends React.Component<BoxInputProps, State> {
         return <input id={this.props.name}
                       name={this.props.name}
                       className={className}
-                      type={this.props.type == 'password' ? 'password' : undefined}
+                      type={this.props.type == 'password' ? 'password' : 'text'}
                       onFocus={() => this._handleFocus()}
                       onKeyPress={e => this._handleKeyPress(e)}
                       onBlur={() => this._handleBlur()}

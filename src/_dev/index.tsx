@@ -5,6 +5,7 @@ import {Decimal, DropDown, Input, Integer, Menu, MenuItemProps, Modal} from '..'
 import './style.css';
 import Button from "../Form/BoxButton";
 import BoxDateTime from "../Form/BoxDateTime";
+import BoxTime from "../Form/BoxTime";
 
 
 function MainApplication() {
@@ -35,6 +36,7 @@ function MainApplication() {
                 <Menu name="boxMenu" label="منو" items={items} searchable value={5} onChange={e => console.log(e)}/>
                 <BoxDateTime name="datetime" label="درصد" value={dateTime} onChange={e => setDateTime(e.newValue)}
                              hasError/>
+                 <BoxTime name="Time" label="زمان"/>
             <Modal trigger={<Button className="buy" isWide>button</Button>}>
                 <Modal.Header>
                     هدر مودال
@@ -46,7 +48,7 @@ function MainApplication() {
                     فوتر مودال
                 </Modal.Footer>
             </Modal>
-            </span>
+        </span>
     </div>
 }
 

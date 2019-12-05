@@ -21,21 +21,31 @@ export default class BoxDateTime extends React.Component<BoxDateTimeProps> {
     //#region Events
 
     _handleChangeDate(newValue: string) {
-        const [, timeValue] = this.props.value ? this.props.value.split('T') : [];
+        const [dateValue, timeValue] = this.props.value ? this.props.value.split('T') : [];
 
-        const dateTimeValue = `${newValue}T${timeValue || ''}`;
-        if (this.props.onChange) {
-            const e = {
-                newValue: dateTimeValue
-            };
-            this.props.onChange(e);
-        }
+        if (dateValue == newValue)
+            return;
+
+        this._handleChange(newValue, timeValue);
     }
 
     _handleChangeTime(newValue: string) {
-        const [dateValue] = this.props.value ? this.props.value.split('T') : [];
+        const [dateValue, timeValue] = this.props.value ? this.props.value.split('T') : [];
 
-        const dateTimeValue = `${dateValue || ''}T${newValue}`;
+        if (timeValue == newValue)
+            return;
+
+        if (newValue.split(':').length >= 2)
+            newValue = newValue + ':00';
+
+        this._handleChange(dateValue, newValue)
+    }
+
+    private _handleChange(dateValue: string = '', timeValue: string = '') {
+        let dateTimeValue = dateValue || timeValue;
+        if (dateValue && timeValue)
+            dateTimeValue = `${dateValue || ''}T${timeValue}`;
+
         if (this.props.onChange) {
             const e = {
                 newValue: dateTimeValue
