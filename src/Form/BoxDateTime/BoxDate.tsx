@@ -90,7 +90,7 @@ export default class BoxDate extends React.Component<BoxDateProps, State> {
             });
 
             const outDate = date.getFullYear() +
-                '-' + date.getMonth().toString().padStart(2, '0') +
+                '-' + (date.getMonth() + 1).toString().padStart(2, '0') +
                 '-' + date.getDate().toString().padStart(2, '0');
 
             this.props.onChange({newValue: outDate})
