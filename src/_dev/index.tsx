@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useState} from 'react';
 import {render} from "react-dom";
-import {Decimal, DropDown, Input, Integer, Menu, MenuItemProps, Modal} from '..'
+import {Decimal, DropDown, Input, Integer, Menu, MenuItemProps, Modal, Popup} from '..'
 import './style.css';
 import Button from "../Form/BoxButton";
 import BoxDateTime from "../Form/BoxDateTime";
@@ -25,6 +25,9 @@ function MainApplication() {
             </span>
         <span style={{width: 200, display: 'inline-block'}}>
             </span>
+        <Popup trigger={'sdfsdf'}>
+            aaa
+        </Popup>
         <span style={{width: 300, display: 'inline-block'}}>
                 <Input name="boxInput" label="نام و نام خانوادگی" value="محمدرضا آزرنگ"/>
                 <Input name="boxInput2" label="نام و نام خانوادگی" value="محمد اشرفیان" hasError/>
