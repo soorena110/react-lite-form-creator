@@ -38,9 +38,9 @@ export default class Popup extends React.Component<PopupProps, State> {
         position: "bottom center"
     };
 
-    componentWillUpdate(nextProps: PopupProps): void {
-        if (nextProps.isVisible != undefined && this.state.isVisible != nextProps.isVisible)
-            this.setState({isVisible: nextProps.isVisible});
+    getSnapshotBeforeUpdate(prevProps: PopupProps, prevState: State): void {
+        if (this.props.isVisible != undefined && prevState.isVisible != this.props.isVisible)
+            this.setState({isVisible: this.props.isVisible});
     }
 
     componentDidUpdate(prevProps: PopupProps, prevState: State) {

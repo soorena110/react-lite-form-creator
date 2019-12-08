@@ -43,10 +43,6 @@ export default class ScrollbarContainer extends React.Component<Props, State> {
         this._unsubscribeDocumentEvents();
     }
 
-    scrollYTo(top: number) {
-        (ReactDOM.findDOMNode(this._content) as HTMLDivElement).scrollTop = top;
-    }
-
     private _changeScrollIndicatiorPosition(isForInit?: boolean) {
         const contentDiv = ReactDOM.findDOMNode(this._content) as HTMLDivElement;
         const scrollDiv = ReactDOM.findDOMNode(this._scroll) as HTMLDivElement;
